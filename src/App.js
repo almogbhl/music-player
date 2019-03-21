@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import styled from 'styled-components';
+import GlobalStyle from "./styles/global.styles";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import TopBar from './components/TopBar/TopBar';
+import Main from './components/Main/Main';
+
+library.add(faPlay);
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Wrapper>
+        <GlobalStyle />
+
+        <TopBar />
+        <Main />
+      </Wrapper>
     );
   }
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+`;
